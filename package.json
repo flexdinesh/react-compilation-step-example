@@ -1,0 +1,30 @@
+{
+  "name": "react-compilation-step-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html",
+    "clean": "rimraf dist build compiled .cache",
+    "build": "NODE_ENV=development parcel build index.html --no-minify --public-url /dist/",
+    "compile:sc": "NODE_ENV=development babel src/HelloSC.js --out-file compiled/HelloSC.js --plugins=babel-plugin-styled-components",
+    "compile:emotion": "NODE_ENV=development babel src/HelloEmotion.js --out-file compiled/HelloEmotion.js --plugins=babel-plugin-emotion",
+    "compile:compiled": "NODE_ENV=development babel src/HelloCompiled.js --out-file compiled/HelloCompiled.js --plugins=@compiled/babel-plugin-css-in-js"
+  },
+  "dependencies": {
+    "@compiled/css-in-js": "^0.2.14",
+    "emotion": "^10.0.27",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-syntax-jsx": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@compiled/babel-plugin-css-in-js": "^0.2.14",
+    "babel-plugin-emotion": "^10.0.33",
+    "babel-plugin-styled-components": "^1.10.7",
+    "parcel-bundler": "^1.12.4"
+  }
+}
